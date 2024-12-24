@@ -1,0 +1,136 @@
+
+:root {
+    font-size: 16px;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: absolute;
+    /* width: 100vw;
+    height: 56vw; */
+    width: 1440px;
+    height: 800px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* margin-top: 1rem; */
+    padding: 1rem;
+}
+main {
+    font-family: "Poppins";
+    background-color: rgb(255,121,121);
+    display: flex;
+    height: 100%;
+    background-image: url('./images/bg-intro-desktop.png');
+}
+.description-card {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    margin: auto;
+}
+.center{
+    margin: auto;
+}
+.description-card h1 {
+    width: 50%;
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 2rem;
+    /*letter-spacing: -0.0325rem; */
+}
+.description-card h2 {
+    width: 50%;
+    text-align: left;
+    font-size: 0.75rem;
+    /* line-height: 1.625rem; */
+}
+.form-card {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.banner {
+    background-color: #5E54A4;
+    color: white;
+    width: 60%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 10px 0 rgba(0,0,0,0.16);
+    border-radius: 5px;
+}
+.form-card > form {
+    background-color: white;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 10px 0 rgba(0,0,0,0.16);
+}
+.input-group {
+    width: 90%;
+    margin: auto;
+    /* width: 34vw; */
+}
+.form-card input {
+    display: block;
+    border: 1px solid black;
+    margin: 1em 1em 0em 1em;
+    padding: 0.5em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-item {
+    position: relative;
+}
+.error-icon {
+    visibility: hidden;
+}
+.error-icon > img {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    max-width: 16px;
+    max-height: 16px;
+}
+.error-msg {
+    font-size: 0.75em;
+    text-align: right;
+    color: red;
+    margin-bottom: 1.33em;
+    visibility: hidden;
+}
+/* input:invalid {
+    border: 1px solid red; 
+} */
+.disclaimer {
+    margin: 0.5em;
+    font-size: 0.675rem;
+}
+.disclaimer > em {
+    font-style: normal;
+    color: red;
+}
+
+.submit-button {
+    background-color: #38CC8B;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+.submit-button:hover {
+    cursor: pointer;
+}
