@@ -39,7 +39,7 @@
       <div class="banner">
         <strong>Try it free 7 days</strong> then $20/mo. thereafter
       </div>
-      <form>
+      <form onsubmit="mysubmit(event)">
         <div class="input-group">
           <div class="input-item">
             <input type="text" id="fname" name="fname" placeholder="First Name" />
@@ -61,7 +61,7 @@
             <i class="error-icon"><img src="./images/icon-error.svg" alt="error icon" /></i>
             <p class="error-msg">Password cannot be empty</p>
           </div>
-          <input type="button" class="submit-button" value="Claim your free trial" onclick="validate()" />
+          <input type="submit" class="submit-button" value="Claim your free trial" />
           <p class="disclaimer">
             By clicking the button, you are agreeing to our <em>Terms and Services</em>
           </p>
@@ -96,21 +96,41 @@
     if(!pattern.test(email.value)) {
       ok = false;
     }
-
-    //console.log(ok, fname, fname.parentNode, fname.parentNode.children);
-    if(!ok) {
+    console.log('validate()', ok);
+    return ok;
+  }
+  function updateVisual(ok)
+  {
+    if(ok) {
       document.querySelectorAll('.error-icon').forEach(e => {
-        e.style.visibility = e.style.visibility == 'visible' ? 'hidden': 'visible';
+        e.style.visibility = 'hidden';
       });
       document.querySelectorAll('.error-msg').forEach(e => {
-        e.style.visibility = e.style.visibility == 'visible' ? 'hidden': 'visible';
+        e.style.visibility = 'hidden';
       });
       document.querySelectorAll('.form-card input').forEach(e => {
-        e.style.borderColor = e.style.borderColor == 'red' ? 'black': 'red';
-      })
+        e.style.borderColor = 'black';
+      });
+    } else {
+      document.querySelectorAll('.error-icon').forEach(e => {
+        e.style.visibility = 'visible';
+      });
+      document.querySelectorAll('.error-msg').forEach(e => {
+        e.style.visibility = 'visible';
+      });
+      document.querySelectorAll('.form-card input').forEach(e => {
+        e.style.borderColor = 'red';
+      });
+    }
+  }
 
-      return false;
-    }    
+  function mysubmit(event) {
+    console.log('in submit()');
+    var ok = validate();
+    updateVisual(ok);
+    if(!ok) {
+      event.preventDefault();
+    }
   }
 </script>
 
