@@ -21,6 +21,10 @@ body {
     transform: translate(-50%, 0%);
     /* margin-top: 1rem; */
     padding: 1rem;
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+        height: auto;
+    }
 }
 main {
     font-family: "Poppins";
@@ -31,6 +35,9 @@ main {
 }
 .description-card {
     flex: 1 1 50%;
+    @media only screen and (max-width: 450px) {
+        flex: 1 1 100%;
+    }
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -43,6 +50,9 @@ main {
 }
 .description-card h1 {
     width: 50%;
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+    }
     text-align: left;
     font-size: 2rem;
     font-weight: bold;
@@ -51,12 +61,18 @@ main {
 }
 .description-card h2 {
     width: 50%;
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+    }
     text-align: left;
     font-size: 0.75rem;
     /* line-height: 1.625rem; */
 }
 .form-card {
     flex: 1 1 50%;
+    @media only screen and (max-width: 450px) {
+        flex: 1 1 100%;
+    }
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -85,18 +101,23 @@ main {
 }
 .form-card input {
     display: block;
-    border: 1px solid black;
+    border: 1px solid hsl(246, 25%, 77%);
     margin: 1em 1em 0em 1em;
     padding: 0.5em;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 3px;
+}
+.input-item input:focus {
+    outline: none;
+    border-color: hsl(249, 10%, 26%);
 }
 .input-item {
     position: relative;
 }
 .error-icon {
-    visibility: hidden;
+    display: none;
 }
 .error-icon > img {
     position: absolute;
@@ -110,7 +131,7 @@ main {
     text-align: right;
     color: red;
     margin-bottom: 1.33em;
-    visibility: hidden;
+    display: none;
 }
 /* input:invalid {
     border: 1px solid red; 

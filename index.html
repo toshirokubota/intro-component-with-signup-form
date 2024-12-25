@@ -86,49 +86,75 @@
     var ok = true;
     if (fname.value.length == 0) {
       ok = false;
+      updateVisual(fname, false);
+    } else {
+      updateVisual(fname, true);
     }
     if (lname.value.length == 0) {
       ok = false;
+      updateVisual(lname, false);
+    } else {
+      updateVisual(lname, true);
     }
     if (passwd.value.length == 0) {
       ok = false;
+      updateVisual(passwd, false);
+    } else {
+      updateVisual(passwd, true);
     }
-    if(!pattern.test(email.value)) {
+    if (!pattern.test(email.value)) {
       ok = false;
+      updateVisual(email, false);
+    } else {
+      updateVisual(email, true);
     }
-    console.log('validate()', ok);
     return ok;
   }
-  function updateVisual(ok)
-  {
-    if(ok) {
-      document.querySelectorAll('.error-icon').forEach(e => {
-        e.style.visibility = 'hidden';
-      });
-      document.querySelectorAll('.error-msg').forEach(e => {
-        e.style.visibility = 'hidden';
-      });
-      document.querySelectorAll('.form-card input').forEach(e => {
-        e.style.borderColor = 'black';
-      });
-    } else {
-      document.querySelectorAll('.error-icon').forEach(e => {
-        e.style.visibility = 'visible';
-      });
-      document.querySelectorAll('.error-msg').forEach(e => {
-        e.style.visibility = 'visible';
-      });
-      document.querySelectorAll('.form-card input').forEach(e => {
-        e.style.borderColor = 'red';
+  function updateVisual(elm, ok) {
+    const parent = elm.parentNode;
+    if (parent) {
+      const children = Array.from(parent.children);
+      children.forEach(e => {
+        if (e.tagName == "P" || e.tagName == "I") {
+          // if (ok) e.style.visibility = 'hidden';
+          // else e.style.visibility = 'visible';
+          if (ok) e.style.display = 'none';
+          else e.style.display = 'block';
+        }
       });
     }
+    if (ok) elm.style.borderColor = 'black';
+    else elm.style.borderColor = 'red';
   }
+
+  //   if(ok) {
+
+  //     document.querySelectorAll('.error-icon').forEach(e => {
+  //       e.style.visibility = 'hidden';
+  //     });
+  //     document.querySelectorAll('.error-msg').forEach(e => {
+  //       e.style.visibility = 'hidden';
+  //     });
+  //     document.querySelectorAll('.form-card input').forEach(e => {
+  //       e.style.borderColor = 'black';
+  //     });
+  //   } else {
+  //     document.querySelectorAll('.error-icon').forEach(e => {
+  //       e.style.visibility = 'visible';
+  //     });
+  //     document.querySelectorAll('.error-msg').forEach(e => {
+  //       e.style.visibility = 'visible';
+  //     });
+  //     document.querySelectorAll('.form-card input').forEach(e => {
+  //       e.style.borderColor = 'red';
+  //     });
+  //   }
+  // }
 
   function mysubmit(event) {
     console.log('in submit()');
     var ok = validate();
-    updateVisual(ok);
-    if(!ok) {
+    if (!ok) {
       event.preventDefault();
     }
   }
