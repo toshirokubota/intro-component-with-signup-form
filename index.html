@@ -117,8 +117,6 @@
       const children = Array.from(parent.children);
       children.forEach(e => {
         if (e.tagName == "P" || e.tagName == "I") {
-          // if (ok) e.style.visibility = 'hidden';
-          // else e.style.visibility = 'visible';
           if (ok) e.style.display = 'none';
           else e.style.display = 'block';
         }
@@ -128,35 +126,22 @@
     else elm.style.borderColor = 'red';
   }
 
-  //   if(ok) {
-
-  //     document.querySelectorAll('.error-icon').forEach(e => {
-  //       e.style.visibility = 'hidden';
-  //     });
-  //     document.querySelectorAll('.error-msg').forEach(e => {
-  //       e.style.visibility = 'hidden';
-  //     });
-  //     document.querySelectorAll('.form-card input').forEach(e => {
-  //       e.style.borderColor = 'black';
-  //     });
-  //   } else {
-  //     document.querySelectorAll('.error-icon').forEach(e => {
-  //       e.style.visibility = 'visible';
-  //     });
-  //     document.querySelectorAll('.error-msg').forEach(e => {
-  //       e.style.visibility = 'visible';
-  //     });
-  //     document.querySelectorAll('.form-card input').forEach(e => {
-  //       e.style.borderColor = 'red';
-  //     });
-  //   }
-  // }
+//   $(document).ready(function() {
+//   $(window).keydown(function(event){
+//     if( (event.keyCode == 13) && (validate() == false) ) {
+//       event.preventDefault();
+//       return false;
+//     }
+//   });
+// });
 
   function mysubmit(event) {
-    console.log('in submit()');
     var ok = validate();
-    if (!ok) {
+    if (!ok || event.key == 'Enter') {
+      console.log('not submitted', event);
       event.preventDefault();
+    } else {
+      console.log('submitted');
     }
   }
 </script>

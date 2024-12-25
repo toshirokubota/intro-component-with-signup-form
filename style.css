@@ -13,32 +13,39 @@
 }
 
 body {
-    position: absolute;
-    width: 1440px;
-    height: 800px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    /* margin-top: 1rem; */
-    /* padding: 1rem; */
-    @media only screen and (max-width: 450px) {
-        width: 100%;
-        height: auto;
-    }
-}
-main {
+    width: 100vw;
+    height: 100vh;
     font-family: "Poppins";
     background-color: rgb(255,121,121);
-    display: flex;
-    height: 100%;
     background-image: url('./images/bg-intro-desktop.png');
+     /* @media only screen and (max-width: 450px) {
+        width: 100%;
+        height: auto;
+    }  */
+}
+main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    column-gap: 1em;
+    height: auto;
+    width: auto;
+    min-width: 800px;
     flex-direction: row;
     @media only screen and (max-width: 450px) {
+        min-width: 0px;
+        width: 100%;
         flex-direction: column;
+        align-items: center;
     }
 }
 .description-card {
-    justify-content: left;
-    flex: 1 1 50%;
+    /* justify-content: left; */
+    /* flex: 1 1 50%; */
+    /* height: 100%; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -46,6 +53,7 @@ main {
     color: white;
     margin: auto 0 auto auto;
     @media only screen and (max-width: 450px) {
+        width: 90%;
         flex: 1 1 100%;
         margin: 3em 0.5em;
     }
@@ -54,33 +62,37 @@ main {
     margin: auto;
 }
 .description-card h1 {
-    width: 50%;
+    width: 100%;
     text-align: left;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 700;
     line-height: 2rem;
+    letter-spacing: 1px;
     padding-bottom: 0.5em;
     @media only screen and (max-width: 450px) {
-        width: 80%;
+        width: 90%;
         text-align: center;
+        font-size: 1.5rem;
     }
 }
 .description-card h2 {
-    width: 50%;
+    width: 100%;
     text-align: left;
     font-size: 0.75rem;
-    letter-spacing: 0.25px;
+    /* letter-spacing: 0.25px; */
     @media only screen and (max-width: 450px) {
-        width: 80%;
+        width: 90%;
         text-align: center;
     }
 }
 .form-card {
-    flex: 1 1 50%;
+    /* flex: 1 1 50%; */
+    /* height: 100%; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: auto 2em auto auto;
+    /* margin: auto 2em auto auto; */
     @media only screen and (max-width: 450px) {
         flex: 1 1 100%;
         margin-bottom: 2em;
@@ -90,22 +102,24 @@ main {
 .banner {
     background-color: #5E54A4;
     color: white;
-    width: 60%;
-    padding: 0.5em;
+    width: 100%;
+    padding: 1em;
     margin: 0.5em 0;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.8rem;
     box-shadow: 0 10px 0 rgba(0,0,0,0.16);
     border-radius: 5px;
     @media only screen and (max-width: 450px) {
         width: 100%;
         padding: 1em 3.5em;
         margin: 1em;
+        padding: 1em 5em;
     }
 }
 .form-card > form {
     background-color: white;
-    width: 60%;
+    width: 100%;
+    padding: 1em;
     @media only screen and (max-width: 450px) {
         width: 100%;
     }
@@ -125,7 +139,7 @@ main {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 .input-item input:focus {
     outline: none;
@@ -155,8 +169,10 @@ main {
     border: 1px solid red; 
 } */
 .disclaimer {
+    text-align: center;
     margin: 0.5em;
-    font-size: 0.675rem;
+    font-size: 0.5rem;
+    color: hsl(246, 25%, 77%)
 }
 .disclaimer > em {
     font-style: normal;
@@ -165,8 +181,7 @@ main {
 
 .submit-button {
     background-color: #38CC8B;
-    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    box-shadow: 0 2px 0 hsl(154, 59%, 31%);
     color: white;
     text-transform: uppercase;
 }
