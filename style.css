@@ -1,26 +1,25 @@
 
 :root {
+    box-sizing: border-box;
     font-size: 16px;
 }
 
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
+    box-sizing: inherit;
     margin: 0;
     padding: 0;
 }
 
 body {
     position: absolute;
-    /* width: 100vw;
-    height: 56vw; */
     width: 1440px;
     height: 800px;
     left: 50%;
     transform: translate(-50%, 0%);
     /* margin-top: 1rem; */
-    padding: 1rem;
+    /* padding: 1rem; */
     @media only screen and (max-width: 450px) {
         width: 100%;
         height: auto;
@@ -32,50 +31,61 @@ main {
     display: flex;
     height: 100%;
     background-image: url('./images/bg-intro-desktop.png');
+    flex-direction: row;
+    @media only screen and (max-width: 450px) {
+        flex-direction: column;
+    }
 }
 .description-card {
+    justify-content: left;
     flex: 1 1 50%;
-    @media only screen and (max-width: 450px) {
-        flex: 1 1 100%;
-    }
     display: flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
     color: white;
-    margin: auto;
+    margin: auto 0 auto auto;
+    @media only screen and (max-width: 450px) {
+        flex: 1 1 100%;
+        margin: 3em 0.5em;
+    }
 }
 .center{
     margin: auto;
 }
 .description-card h1 {
     width: 50%;
-    @media only screen and (max-width: 450px) {
-        width: 100%;
-    }
     text-align: left;
     font-size: 2rem;
     font-weight: bold;
     line-height: 2rem;
-    /*letter-spacing: -0.0325rem; */
+    padding-bottom: 0.5em;
+    @media only screen and (max-width: 450px) {
+        width: 80%;
+        text-align: center;
+    }
 }
 .description-card h2 {
     width: 50%;
-    @media only screen and (max-width: 450px) {
-        width: 100%;
-    }
     text-align: left;
     font-size: 0.75rem;
-    /* line-height: 1.625rem; */
+    letter-spacing: 0.25px;
+    @media only screen and (max-width: 450px) {
+        width: 80%;
+        text-align: center;
+    }
 }
 .form-card {
     flex: 1 1 50%;
-    @media only screen and (max-width: 450px) {
-        flex: 1 1 100%;
-    }
     display: flex;
     flex-direction: column;
-    margin: auto;
+    align-items: center;
+    margin: auto 2em auto auto;
+    @media only screen and (max-width: 450px) {
+        flex: 1 1 100%;
+        margin-bottom: 2em;
+        width: 80%;
+    }
 }
 .banner {
     background-color: #5E54A4;
@@ -87,10 +97,18 @@ main {
     font-size: 1rem;
     box-shadow: 0 10px 0 rgba(0,0,0,0.16);
     border-radius: 5px;
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+        padding: 1em 3.5em;
+        margin: 1em;
+    }
 }
 .form-card > form {
     background-color: white;
     width: 60%;
+    @media only screen and (max-width: 450px) {
+        width: 100%;
+    }
     border-radius: 10px;
     box-shadow: 0 10px 0 rgba(0,0,0,0.16);
 }
