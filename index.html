@@ -45,22 +45,22 @@
           <div class="input-item">
             <input type="text" id="fname" name="fname" placeholder="First Name" />
             <i class="error-icon"><img src="./images/icon-error.svg" alt="error icon" /></i>
-            <p class="error-msg">First name cannot be empty</p>
+            <p class="error-msg"></p>
           </div>
           <div class="input-item">
             <input type="text" id="lname" name="lname" placeholder="Last Name" />
             <i class="error-icon"><img src="./images/icon-error.svg" alt="error icon" /></i>
-            <p class="error-msg">Last name cannot be empty</p>
+            <p class="error-msg"></p>
           </div>
           <div class="input-item">
             <input type="email" id="email" name="email" placeholder="Email Address" />
             <i class="error-icon"><img src="./images/icon-error.svg" alt="error icon" /></i>
-            <p class="error-msg">Looks like this is not an email</p>
+            <p class="error-msg"></p>
           </div>
           <div class="input-item">
             <input type="password" id="passwd" name="passwd" placeholder="Password" />
             <i class="error-icon"><img src="./images/icon-error.svg" alt="error icon" /></i>
-            <p class="error-msg">Password cannot be empty</p>
+            <p class="error-msg"></p>
           </div>
           <input type="submit" class="submit-button" value="Claim your free trial" />
           <p class="disclaimer">
@@ -87,31 +87,34 @@
     var ok = true;
     if (fname.value.length == 0) {
       ok = false;
-      updateVisual(fname, false);
+      updateVisual(fname, false, 'First name cannot be empty');
     } else {
       updateVisual(fname, true);
     }
     if (lname.value.length == 0) {
       ok = false;
-      updateVisual(lname, false);
+      updateVisual(lname, false, 'Last name cannot be empty');
     } else {
       updateVisual(lname, true);
     }
     if (passwd.value.length == 0) {
       ok = false;
-      updateVisual(passwd, false);
+      updateVisual(passwd, false, 'Password cannot be empty');
     } else {
       updateVisual(passwd, true);
     }
-    if (!pattern.test(email.value)) {
+    if(email.value.length == 0) {
       ok = false;
-      updateVisual(email, false);
+      updateVisual(email, false, 'Email cannot be empty');
+    } else if (!pattern.test(email.value)) {
+      ok = false;
+      updateVisual(email, false, 'Looks like this is not an email');
     } else {
       updateVisual(email, true);
     }
     return ok;
   }
-  function updateVisual(elm, ok) {
+  function updateVisual(elm, ok, msg) {
     const parent = elm.parentNode;
     if (parent) {
       const children = Array.from(parent.children);
@@ -119,6 +122,9 @@
         if (e.tagName == "P" || e.tagName == "I") {
           if (ok) e.style.display = 'none';
           else e.style.display = 'block';
+          if(e.tagName == "P") {
+            e.innerText = msg;
+          }
         }
       });
     }
@@ -126,23 +132,11 @@
     else elm.style.borderColor = 'red';
   }
 
-//   $(document).ready(function() {
-//   $(window).keydown(function(event){
-//     if( (event.keyCode == 13) && (validate() == false) ) {
-//       event.preventDefault();
-//       return false;
-//     }
-//   });
-// });
-
   function mysubmit(event) {
     var ok = validate();
     if (!ok || event.key == 'Enter') {
-      console.log('not submitted', event);
       event.preventDefault();
-    } else {
-      console.log('submitted');
-    }
+    } 
   }
 </script>
 

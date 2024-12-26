@@ -150,24 +150,26 @@ main {
 }
 .error-icon {
     display: none;
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    max-width: 16px;
+    max-height: 16px;
 }
-.error-icon > img {
+/* .error-icon > img {
     position: absolute;
     top: 8px;
     right: 10px;
     max-width: 16px;
     max-height: 16px;
-}
+} */
 .error-msg {
-    font-size: 0.75em;
+    font-size: 0.5rem;
     text-align: right;
     color: red;
     margin-bottom: 1.33em;
     display: none;
 }
-/* input:invalid {
-    border: 1px solid red; 
-} */
 .disclaimer {
     text-align: center;
     margin: 0.5em;
